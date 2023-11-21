@@ -1,6 +1,6 @@
 import random
 from dice import Dice
-from charactere import Warrior, Mage, Thief, Character
+from character import Warrior, Mage, Thief, Character
 
 if __name__ == "__main__":
     warrior = Warrior("james", 20, 8, 3, Dice(6))
