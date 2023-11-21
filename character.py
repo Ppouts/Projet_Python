@@ -2,6 +2,10 @@ from __future__ import annotations
 
 from dice import Dice
 
+from cards import Card
+
+# from monstre import monstre
+
 class MessageManager():
     pass
 
@@ -54,13 +58,13 @@ class Character:
     def compute_damages(self, roll, target):
         return self._attack_value + roll
         
-    def attack(self, target: Character):
-        if not self.is_alive():
-            return
-        roll = self._dice.roll()
-        damages = self.compute_damages(roll, target)
-        print(f"⚔️ {self._name} attack {target.get_name()} with {damages} damages (attack: {self._attack_value} + roll: {roll})")
-        target.defense(damages, self)
+    # def attack(self,used_card:Card, target: Monstre):
+    #    if not self.is_alive():
+    #        return
+     #   roll = self._dice.roll()
+    #   damages = self.compute_damages(roll, target)
+     #   print(f"⚔️ {self._name} attack {target.get_name()} with {damages} damages (attack: {self._attack_value} + roll: {roll})")
+     #   target.defense(damages, self)
     
     def compute_defense(self, damages, roll, attacker):
         return damages - self._defense_value - roll
