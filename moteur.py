@@ -11,7 +11,10 @@ def choose_cards(player):
     print(f"\nC'est à {player.name} de jouer:")
     player_cards = player.deck.cards
     for i, card in enumerate(player_cards, start=1):
-        print(f"{i}. {card.name} - {card.description}")
+        if type(card)==AttackCard:
+            print(f"{i}. {card.name} - {card.description} attack:{card.damage} recul: {card.recul} ")
+        elif(type(card)==HealCard) :
+            print(f"{i}. {card.name} - {card.description} heal:{card.healing} shield:{card.defense} ")
 
     chosen_cards_indices = input("Choisissez les cartes à jouer (séparées par des virgules) : ")
     chosen_cards_indices = [int(index) - 1 for index in chosen_cards_indices.split(",")]
@@ -31,7 +34,7 @@ def main():
     elif player_choice.lower() == "thief":
         player = Thief("Balkany")
     else:
-        print("Classe non valide. Choisissez parmi Warrior, Mage, ou Thief.")
+        input("Classe non valide. Choisissez parmi Warrior, Mage, ou Thief.")
         return
 
     # Ajouter des cartes au deck du joueur
@@ -44,6 +47,7 @@ def main():
 
     for enemy in enemies:
         print(f"\nVous entrez en combat contre {enemy.name}!")
+        print(f"{enemy.name}: {enemy.current_hp}/{enemy.max_hp} HP")
 
 
         # Boucle de combat
@@ -55,20 +59,22 @@ def main():
             for card in chosen_cards:
                 card.play(enemy,player)
                 player.deck.remove_card(card)
-                
-
-            # Ennemi attaque le joueur
-            player.take_damage(enemy.ennemy_attack)
-            print(f"\n{enemy.name} attaque {player.name} avec {enemy.ennemy_attack} de dégâts.")
+            if enemy.is_alive()==False:
+                pass
+            else:
+                player.take_damage(enemy.ennemy_attack)
+                print(f"\n{enemy.name} attaque {player.name} avec {enemy.ennemy_attack} de dégâts.")
             player.deck.add_card(random.choice(player.carte_possible))
 
-            # Afficher l'état du combat
             print(f"\n{player.name}: {player.current_hp}/{player.max_hp} HP")
             print(f"{enemy.name}: {enemy.current_hp}/{enemy.max_hp} HP")
+                
+            
 
         # Fin du combat
         if player.is_alive():
             print(f"\nVous avez vaincu {enemy.name}!")
+            player.deck.add_card(random.choice(player.carte_possible))
         else:
             print(f"\n{enemy.name} vous a vaincu. Game Over.")
 
