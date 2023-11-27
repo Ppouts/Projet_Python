@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from game import Warrior, Mage, Thief, Enemy, AttackCard,HealCard
 
-
+import random
 
 
 
@@ -24,8 +24,10 @@ def main():
     player_choice = input("Choisissez votre classe (Warrior, Mage, Thief) : ")
     if player_choice.lower() == "warrior":
         player = Warrior("Aragorn")
+        player.carte_possible=player.cartes_possible_warrior
     elif player_choice.lower() == "mage":
         player = Mage("Gandalf")
+        player.carte_possible=player.cartes_possible_mage
     elif player_choice.lower() == "thief":
         player = Thief("Balkany")
     else:
@@ -58,7 +60,7 @@ def main():
             # Ennemi attaque le joueur
             player.take_damage(enemy.ennemy_attack)
             print(f"\n{enemy.name} attaque {player.name} avec {enemy.ennemy_attack} de dégâts.")
-            player.deck.add_card(AttackCard("Coup d'Épée", "Une attaque puissante avec une épée", damage=10))
+            player.deck.add_card(random.choice(player.carte_possible))
 
             # Afficher l'état du combat
             print(f"\n{player.name}: {player.current_hp}/{player.max_hp} HP")
@@ -69,8 +71,6 @@ def main():
             print(f"\nVous avez vaincu {enemy.name}!")
         else:
             print(f"\n{enemy.name} vous a vaincu. Game Over.")
-
-
 
 if __name__ == "__main__":
     main()
