@@ -97,24 +97,3 @@ class Thief(Character):
     def __init__(self, name):
         super().__init__(name, max_hp=28)
 
-warrior = Warrior("Aragorn")
-mage = Mage("Gandalf")
-thief = Thief("Legolas")
-
-if __name__ == "__main__":
-    warrior.deck.add_card(AttackCard("Coup d'Épée", "Une attaque puissante avec une épée", damage=10))
-    mage.deck.add_card(HealCard("Sort de Guérison", "Soigne le personnage", healing=8))
-    thief.deck.add_card(AttackCard("Frappe Sournoise", "Une attaque furtive", damage=12))
-
-    dragon = Enemy("Dragon", max_hp=50)
-
-    warrior.deck.draw_card().play(dragon)
-    mage.deck.draw_card().play(dragon)
-
-    dragon.take_damage(15)
-    thief.take_damage(8)
-
-    print(f"{warrior.name}: {warrior.current_hp}/{warrior.max_hp} HP")
-    print(f"{mage.name}: {mage.current_hp}/{mage.max_hp} HP")
-    print(f"{thief.name}: {thief.current_hp}/{thief.max_hp} HP")
-    print(f"{dragon.name}: {dragon.current_hp}/{dragon.max_hp} HP")

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dice import Dice
 
-from cards import Card
 
 # from monstre import monstre
 

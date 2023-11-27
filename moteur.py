@@ -1,4 +1,9 @@
+from __future__ import annotations
+
 from game import Warrior, Mage, Thief, Enemy, AttackCard,HealCard
+
+
+
 
 
 def choose_cards(player):
@@ -22,7 +27,7 @@ def main():
     elif player_choice.lower() == "mage":
         player = Mage("Gandalf")
     elif player_choice.lower() == "thief":
-        player = Thief("Legolas")
+        player = Thief("Balkany")
     else:
         print("Classe non valide. Choisissez parmi Warrior, Mage, ou Thief.")
         return
@@ -47,10 +52,13 @@ def main():
             # Joueur joue ses cartes
             for card in chosen_cards:
                 card.play(enemy,player)
+                player.deck.remove_card(card)
+                
 
             # Ennemi attaque le joueur
             player.take_damage(enemy.ennemy_attack)
             print(f"\n{enemy.name} attaque {player.name} avec {enemy.ennemy_attack} de dégâts.")
+            player.deck.add_card(AttackCard("Coup d'Épée", "Une attaque puissante avec une épée", damage=10))
 
             # Afficher l'état du combat
             print(f"\n{player.name}: {player.current_hp}/{player.max_hp} HP")
