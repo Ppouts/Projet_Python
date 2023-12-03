@@ -14,7 +14,7 @@ C'est un jeu de carte PVE tour par tour où vous jouerez avec des cartes spécif
 - Une fois que vous avez lancé vous choisirez votre classe 
 > vous piocher 2 cartes aléatoires de votre deck puis vous affronterez plusieurs vagues d'ennemis les unes à la suite des autres chaque fois que vous jouez un tour vous piocherez une cartes et quand vous abttez un ennemi vous piocher une carte supplémentaires jusqu'à que vous finissez le jeu.
 
-![beta](/Projet_Python/img/beta.jpg)
+![beta](/img/beta.jpg)
 
 > Ce jeu sera upgrade quand on trouvera le temps de continuer.
 
