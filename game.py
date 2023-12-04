@@ -103,7 +103,7 @@ class Mage(Character):
                     ,HealCard("bouclier sacré", "soigne et offre une modeste protection", healing=5,defense=10)
                      ,AttackCard("avadakedabra", "magie surpuissante avec grand recul", damage=30,recul=15)]
 
-class Thief(Character):
-    def __init__(self, name):
-        super().__init__(name, max_hp=150)
+# class Thief(Character):
+#     def __init__(self, name):
+#         super().__init__(name, max_hp=150)
 
