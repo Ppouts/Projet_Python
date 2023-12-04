@@ -1,10 +1,8 @@
 from __future__ import annotations
 
-from game import Warrior, Mage, Thief, Enemy, AttackCard,HealCard
+from game import Warrior, Mage,Enemy, AttackCard,HealCard
 
 import random
-
-
 
 def choose_cards(player):
     # Cette fonction permet au joueur de choisir les cartes à jouer dans son deck
@@ -24,22 +22,22 @@ def choose_cards(player):
 
 def main():
     # Créer le joueur
-    player_choice = input("Choisissez votre classe (Warrior, Mage, Thief) : ")
+    player_choice = input("Choisissez votre classe (Warrior, Mage): ")
     if player_choice.lower() == "warrior":
         player = Warrior("Aragorn")
         player.carte_possible=player.cartes_possible_warrior
     elif player_choice.lower() == "mage":
         player = Mage("Gandalf")
         player.carte_possible=player.cartes_possible_mage
-    elif player_choice.lower() == "thief":
-        player = Thief("Balkany")
+    # elif player_choice.lower() == "thief":
+    #     player = Thief("Balkany")
     else:
-        input("Classe non valide. Choisissez parmi Warrior, Mage, ou Thief.")
+        print("Classe non valide. Choisissez parmi Warrior, Mage")
         return
 
     # Ajouter des cartes au deck du joueur
-    player.deck.add_card(AttackCard("Coup d'Épée", "Une attaque puissante avec une épée", damage=10))
-    player.deck.add_card(HealCard("Sort de Guérison", "Soigne le personnage", healing=8))
+    player.deck.add_card(random.choice(player.carte_possible))
+    player.deck.add_card(random.choice(player.carte_possible))
     # Ajoutez d'autres cartes au besoin
 
     # Créer les ennemis
