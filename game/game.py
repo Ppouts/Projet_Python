@@ -91,16 +91,20 @@ class Enemy:
 
 class Warrior(Character):
     def __init__(self, name):
+        super().__init__(name, max_hp=100)
         self.cartes_possible_warrior=[AttackCard("Coup d'Épée", "Une attaque puissante avec une épée", damage=10)
                     ,AttackCard("lame lourde", "inflige de lourds dégats", damage=15,recul=2)
+                    ,HealCard("bandages","soins de fortune ",healing=self.max_hp/10,defense=1)
+                    ,AttackCard("lame maudite","frappe l'ennemi avec votre force vital",damage=self.max_hp/2,recul=self.current_hp/4)
                      ,AttackCard("lame berserk", "coup surpuissant avec grand  recul", damage=25,recul=10)]
-        super().__init__(name, max_hp=100)
-
+        
 class Mage(Character):
     def __init__(self, name):
         super().__init__(name, max_hp=100)
         self.cartes_possible_mage=[AttackCard("boule de feu", "lance une puissante boule de feu", damage=10)
                     ,HealCard("bouclier sacré", "soigne et offre une modeste protection", healing=5,defense=10)
+                    ,HealCard("Soin total", "soigne entièrement l'utilisateur contre une perte de défense",healing=self.max_hp,defense=-5)
+                    ,AttackCard("foudre","lance un éclair puissant",damage=12)
                      ,AttackCard("avadakedabra", "magie surpuissante avec grand recul", damage=30,recul=15)]
 
 # class Thief(Character):
