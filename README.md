@@ -7,6 +7,7 @@ C'est un jeu de carte PVE tour par tour où vous jouerez avec des cartes spécif
 
 - git clone https://github.com/Ppouts/Projet_Python.git
 - Installer python si ce n'est pas déjà fait
+- `cd game\`
 - `python ./moteur.py`
 
 ## Déroulement
