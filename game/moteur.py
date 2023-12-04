@@ -29,8 +29,6 @@ def main():
     elif player_choice.lower() == "mage":
         player = Mage("Gandalf")
         player.carte_possible=player.cartes_possible_mage
-    # elif player_choice.lower() == "thief":
-    #     player = Thief("Balkany")
     else:
         print("Classe non valide. Choisissez parmi Warrior, Mage")
         return
