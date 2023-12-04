@@ -96,7 +96,7 @@ class Warrior(Character):
                     ,AttackCard("lame lourde", "inflige de lourds dégats", damage=15,recul=2)
                     ,HealCard("bandages","soins de fortune ",healing=self.max_hp/10,defense=1)
                     ,AttackCard("lame maudite","frappe l'ennemi avec votre force vital",damage=self.max_hp/2,recul=self.current_hp/4)
-                     ,AttackCard("lame berserk", "coup surpuissant avec grand  recul", damage=25,recul=10)]
+                     ,AttackCard("lame berserk", "coup surpuissant avec grand  recul", damage=25,recul=20)]
         
 class Mage(Character):
     def __init__(self, name):
