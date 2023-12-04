@@ -91,7 +91,7 @@ class Enemy:
 
 class Warrior(Character):
     def __init__(self, name):
-        super().__init__(name, max_hp=100)
+        super().__init__(name, max_hp=150)
         self.cartes_possible_warrior=[AttackCard("Coup d'Épée", "Une attaque puissante avec une épée", damage=10)
                     ,AttackCard("lame lourde", "inflige de lourds dégats", damage=15,recul=2)
                     ,HealCard("bandages","soins de fortune ",healing=self.max_hp/10,defense=1)
